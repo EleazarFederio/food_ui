@@ -2,12 +2,12 @@ import React from "react";
 
 function FoodCatalog (foods){
     return(
-        <div className={'col-md-4 product-grid'} >
+        <div className={'col-lg-3 col-md-4 col-sm-6 col-xs-1 product-grid'} >
             <div className={'image'}>
                 <a>
                     <img src={'https://cdn.phonebooky.com/blog/wp-content/uploads/2019/05/21132504/Brown-Sugar.jpg'} className={'w-100'}/>
                     <div className={'overlay'}>
-                        <div className={'detail'}>View Details</div>
+                        <div className={'detail'}><p>Double Click to view Details</p></div>
                     </div>
                 </a>
             </div>
