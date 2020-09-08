@@ -1,0 +1,44 @@
+import React, {useEffect, useState} from "react";
+import "../design/Home.css";
+import {axios} from "../lib/axios";
+import FoodCatalog from "./FoodCatalog";
+
+
+
+function Home () {
+
+    const [foods, setFoods] = useState([]);
+
+    console.log("Foods: ", foods)
+
+    const getFoods = async () => {
+        const responce = await axios.get("/foods").catch((error) => console.log("Error: ", error));
+        console.log("Console log Foods: ", responce.data)
+        if (responce && responce.data.data){
+            setFoods(responce.data.data);
+        }
+    }
+
+    const noFoods = !foods || (foods && foods.length === 0);
+
+    useEffect(() => {
+        getFoods();
+    }, [])
+
+    return(
+      <div className={'container'}>
+          <br/><br/>
+          <h1>This is Home</h1>
+
+
+          <div className={'row'}>
+              {!noFoods && foods.map((foods, index) => (
+                  <FoodCatalog key={'index'} {...foods}/>
+              ))}
+          </div>
+
+      </div>
+    );
+}
+
+export default Home;
