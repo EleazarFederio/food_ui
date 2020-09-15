@@ -1,12 +1,14 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import "../design/Navigation.css";
 
 
 function MainNavBar () {
+
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
+        <nav className="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top foodie-nav">
             <div className="container">
-                <a className="navbar-brand" href="#">Foodiey</a>
+                <a className="navbar-brand" href="/">Foodiey</a>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                         aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>

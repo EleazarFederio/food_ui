@@ -9,11 +9,9 @@ function Home () {
 
     const [foods, setFoods] = useState([]);
 
-    console.log("Foods: ", foods)
-
     const getFoods = async () => {
-        const responce = await axios.get("/foods").catch((error) => console.log("Error: ", error));
-        console.log("Console log Foods: ", responce.data)
+        const responce = await axios.get("/foods/").catch((error) => console.log("Error: ", error));
+        // console.log("Console log Foods: ", responce.data)
         if (responce && responce.data.data){
             setFoods(responce.data.data);
         }
@@ -25,6 +23,7 @@ function Home () {
         getFoods();
     }, [])
 
+
     return(
       <div className={'container'}>
           <br/><br/>
@@ -33,7 +32,7 @@ function Home () {
 
           <div className={'row'}>
               {!noFoods && foods.map((foods, index) => (
-                  <FoodCatalog key={'index'} {...foods}/>
+                  <FoodCatalog key={foods.id} {...foods}/>
               ))}
           </div>
 

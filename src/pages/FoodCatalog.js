@@ -1,15 +1,18 @@
 import React from "react";
 
+
 function FoodCatalog (foods){
+
     return(
-        <div className={'col-lg-3 col-md-4 col-sm-6 col-xs-1 product-grid'} >
+        // <div className={'col-lg-3 col-md-4 col-sm-6 col-xs-1 product-grid'}  onDoubleClick={e => console.log("Clicked")}>
+        <div className={'col-lg-3 col-md-4 col-sm-6 col-xs-1 product-grid'}  onDoubleClick={e => window.location.href='/food/detail/'+foods.id}>
             <div className={'image'}>
-                <a>
-                    <img src={'https://cdn.phonebooky.com/blog/wp-content/uploads/2019/05/21132504/Brown-Sugar.jpg'} className={'w-100'}/>
+                <div>
+                    <img src={'https://cdn.phonebooky.com/blog/wp-content/uploads/2019/05/21132504/Brown-Sugar.jpg'} alt={foods.name} className={'w-100'}/>
                     <div className={'overlay'}>
                         <div className={'detail'}><p>Double Click to view Details</p></div>
                     </div>
-                </a>
+                </div>
             </div>
             <h4 className={'text-center'}>{foods.name}</h4>
             <p className={'description-style'}><i>{foods.detail}</i></p>
